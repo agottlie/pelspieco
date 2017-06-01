@@ -1,0 +1,49 @@
+.header {
+	height: 100px;
+	background-color: black;
+}
+
+.pie {
+	height: 70px;
+	background: url("../images/pieslice1-05.png") no-repeat;
+}
+
+.headerList {
+	width: 70%;
+	float: right;
+}
+
+li {
+	display: inline;
+	margin: 0 10px;
+}
+
+li a {
+	color: white;
+	text-decoration: none;
+}
+
+.main {
+	height: 5000px;
+	background: url("../images/pels_back2.jpg");
+}
+
+.textbox {
+	display: inline-block;
+	width: 50%;
+	background-color: white;
+}
+
+.post img, .google {
+	display: inline;
+	width: 49%;
+	float: right;
+}
+
+.wallPaper { 
+	height: 700px;
+}
+
+.second {
+	background: url("../images/pels_back3.jpg");
+}
