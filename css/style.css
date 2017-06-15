@@ -1,49 +1,298 @@
+body {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 14px;
+    line-height: 17px;
+    word-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    -moz-font-feature-settings: 'liga';
+    -ms-font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    margin: 0;
+    text-rendering: auto;
+}
+
 .header {
-	height: 100px;
-	background-color: black;
+    height: 60px;
+    background-color: #17211E;
+    position: fixed;
+    width: 100vw;
+    z-index: 60;
 }
 
 .pie {
-	height: 70px;
-	background: url("../images/pieslice1-05.png") no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 42px;
+    margin: 10px 5px 5px 50px;
 }
 
 .headerList {
-	width: 70%;
-	float: right;
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin-right: 100px;
+    margin-top: 10px;
 }
 
 li {
-	display: inline;
-	margin: 0 10px;
+    display: inline;
+    margin: 0 20px;
 }
 
 li a {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
+    font-family: Courier New, Courier, monospace;
+    font-size: 18px;
+}
+
+.logo {
+    background-image: url("../images/pels pie co_medium-02-u231.png");
+    background-repeat: no-repeat;
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    left: 50%;
+    top: 50%;
+    margin: -250px 0 0 -250px;
+    z-index: 1;
 }
 
 .main {
-	height: 5000px;
-	background: url("../images/pels_back2.jpg");
+    clear: both;
+}
+
+.flowers,
+.fruit,
+.wallpaper {
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.flowers {
+    background-image: url("../images/pels_back2.jpg");
+}
+
+.fruit {
+    background-image: url("../images/pels_back4.jpg");
+}
+
+.wallpaper {
+    background-image: url("../images/pels_back3.jpg");
+    height: 500px;
+}
+
+.picsContainer {
+    text-align: center;
+    margin: 10px auto -10px auto;
+    background-color: white;
+    padding-bottom: 10px;
+    box-shadow: 2px;
+    position: relative;
+    z-index: 3;
 }
 
 .textbox {
-	display: inline-block;
-	width: 50%;
-	background-color: white;
+    display: inline-block;
+    width: 49.5%;
+    height: 100%;
+    background-color: white;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    position: relative;
+    background-color: white;
+    z-index: 1;
+    min-height: 400px;
+    margin-left: 0.5%;
 }
 
-.post img, .google {
-	display: inline;
-	width: 49%;
-	float: right;
+p {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
-.wallPaper { 
-	height: 700px;
+h3 {
+    font-family: Courier New, Courier, monospace;
+    font-size: 24px;
+    font-weight: 500;
 }
 
-.second {
-	background: url("../images/pels_back3.jpg");
+.pics {
+    width: 8%;
+    display: inline-block;
+    margin: 5px;
+}
+
+.mainPic {
+    display: block;
+    margin: 10px auto;
+}
+
+.postpic,
+.google {
+    display: inline;
+    height: auto;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    float: right;
+    width: 50%;
+    min-height: 400px;
+}
+
+.post {
+    clear: both;
+    height: 400px;
+    position: relative;
+    background-color: white;
+    display: table;
+    width: 100%;
+}
+
+.hours {
+    height: 10px;
+}
+
+.gallery {
+    margin-top: -10px;
+    padding-top: 5px;
+}
+
+.mainPic {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    margin-top: -5px;
+    padding-top: 5px;
+    margin-bottom: -10px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .header {
+        height: 40px;
+        min-width: 525px;
+    }
+    .pie {
+        height: 22px;
+    }
+    .headerList {
+        margin-right: 10px;
+        margin-top: 0;
+    }
+    li {
+        margin: 0 10px;
+    }
+    li a {
+        font-size: 12px;
+    }
+    
+    .logo {
+        background-image: url("../images/pels pie co_medium-02-u231.png");
+        background-repeat: no-repeat;
+        position: fixed;
+        height: 500px;
+        width: 500px;
+        left: 50%;
+        top: 50%;
+        margin: -250px 0 0 -250px;
+        z-index: 1;
+    }
+    .main {
+        clear: both;
+    }
+    .flowers,
+    .fruit,
+    .wallpaper {
+        height: 600px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .flowers {
+        background-image: url("../images/pels_back2.jpg");
+    }
+    .fruit {
+        background-image: url("../images/pels_back4.jpg");
+    }
+    .wallpaper {
+        background-image: url("../images/pels_back3.jpg");
+        height: 500px;
+    }
+    .picsContainer {
+        text-align: center;
+        margin: 10px auto -10px auto;
+        background-color: white;
+        padding-bottom: 10px;
+        box-shadow: 2px;
+        position: relative;
+        z-index: 3;
+    }
+    .textbox {
+        display: inline-block;
+        width: 49.5%;
+        height: 100%;
+        background-color: white;
+        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        position: relative;
+        background-color: white;
+        z-index: 1;
+        min-height: 400px;
+        margin-left: 0.5%;
+    }
+    p {
+        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+    h3 {
+        font-family: Courier New, Courier, monospace;
+        font-size: 24px;
+        font-weight: 500;
+    }
+    .pics {
+        width: 8%;
+        display: inline-block;
+        margin: 5px;
+    }
+    .mainPic {
+        display: block;
+        margin: 10px auto;
+    }
+    .postpic,
+    .google {
+        display: inline;
+        height: auto;
+        background-color: white;
+        position: relative;
+        z-index: 1;
+        float: right;
+        width: 50%;
+        min-height: 400px;
+    }
+    .post {
+        clear: both;
+        height: 400px;
+        position: relative;
+        background-color: white;
+        display: table;
+        width: 100%;
+    }
+    .hours {
+        height: 10px;
+    }
+    .gallery {
+        margin-top: -10px;
+        padding-top: 5px;
+    }
+    .mainPic {
+        position: relative;
+        z-index: 1;
+        background-color: white;
+        margin-top: -5px;
+        padding-top: 5px;
+        margin-bottom: -10px;
+        padding-bottom: 10px;
+    }
 }
