@@ -100,7 +100,6 @@ li a {
     display: inline-block;
     width: 49.5%;
     height: 100%;
-    background-color: white;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     position: relative;
     background-color: white;
@@ -112,6 +111,7 @@ li a {
 p {
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
+    margin: 0 auto;
 }
 
 h3 {
@@ -124,11 +124,6 @@ h3 {
     width: 8%;
     display: inline-block;
     margin: 5px;
-}
-
-.mainPic {
-    display: block;
-    margin: 10px auto;
 }
 
 .postpic,
@@ -162,6 +157,8 @@ h3 {
 }
 
 .mainPic {
+    display: block;
+    margin: 10px auto;
     position: relative;
     z-index: 1;
     background-color: white;
@@ -189,91 +186,26 @@ h3 {
     li a {
         font-size: 12px;
     }
-    
     .logo {
-        background-image: url("../images/pels pie co_medium-02-u231.png");
-        background-repeat: no-repeat;
-        position: fixed;
-        height: 500px;
-        width: 500px;
-        left: 50%;
-        top: 50%;
-        margin: -250px 0 0 -250px;
+        margin: -320px 0 0 -250px;
         z-index: 1;
-    }
-    .main {
-        clear: both;
     }
     .flowers,
     .fruit,
     .wallpaper {
-        height: 600px;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .flowers {
-        background-image: url("../images/pels_back2.jpg");
-    }
-    .fruit {
-        background-image: url("../images/pels_back4.jpg");
-    }
-    .wallpaper {
-        background-image: url("../images/pels_back3.jpg");
-        height: 500px;
-    }
-    .picsContainer {
-        text-align: center;
-        margin: 10px auto -10px auto;
-        background-color: white;
-        padding-bottom: 10px;
-        box-shadow: 2px;
-        position: relative;
-        z-index: 3;
-    }
-    .textbox {
-        display: inline-block;
-        width: 49.5%;
-        height: 100%;
-        background-color: white;
-        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-        position: relative;
-        background-color: white;
-        z-index: 1;
-        min-height: 400px;
-        margin-left: 0.5%;
-    }
-    p {
-        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-        font-size: 14px;
-    }
-    h3 {
-        font-family: Courier New, Courier, monospace;
-        font-size: 24px;
-        font-weight: 500;
-    }
-    .pics {
-        width: 8%;
-        display: inline-block;
-        margin: 5px;
-    }
-    .mainPic {
-        display: block;
-        margin: 10px auto;
+        height: 400px;
     }
     .postpic,
-    .google {
-        display: inline;
-        height: auto;
-        background-color: white;
-        position: relative;
-        z-index: 1;
-        float: right;
-        width: 50%;
-        min-height: 400px;
+    .google,
+    .textbox {
+        min-height: 0;
+    }
+    p {
+        font-size: 10px;
     }
     .post {
         clear: both;
-        height: 400px;
+        height: 100px;
         position: relative;
         background-color: white;
         display: table;
@@ -287,12 +219,13 @@ h3 {
         padding-top: 5px;
     }
     .mainPic {
-        position: relative;
-        z-index: 1;
-        background-color: white;
-        margin-top: -5px;
-        padding-top: 5px;
-        margin-bottom: -10px;
-        padding-bottom: 10px;
+        height: 350px;
+        width: 350px;
+    }
+}
+
+@media (max-width: 580px) {
+    p {
+        line-height: 1em;
     }
 }
