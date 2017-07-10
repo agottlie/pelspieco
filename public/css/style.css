@@ -196,7 +196,7 @@ h3 {
 }
 
 .event-form>input,
-.login-form>input {
+.login-form>input, .event-form>select {
     margin-top: 20px;
     width: 400px;
     font-family: Courier New, Courier, monospace;
