@@ -33,20 +33,20 @@ body {
     position: relative;
     float: right;
     display: inline-block;
-    margin-right: 100px;
+    margin-right: 10px;
     margin-top: 10px;
 }
 
 li {
     display: inline;
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 li a {
     color: white;
     text-decoration: none;
     font-family: Courier New, Courier, monospace;
-    font-size: 18px;
+    font-size: 1.2vw;
 }
 
 .logo {
@@ -88,7 +88,7 @@ li a {
 
 .picsContainer {
     text-align: center;
-    margin: 10px auto -10px auto;
+    margin: 0 auto -10px auto;
     background-color: white;
     padding-bottom: 10px;
     box-shadow: 2px;
@@ -151,24 +151,87 @@ h3 {
     height: 10px;
 }
 
-.gallery {
-    margin-top: -10px;
-    padding-top: 5px;
+.picToggle {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.left,
+.right {
+    border-style: none;
+    border-color: transparent;
+    background-color: #FFFFFF;
+    color: #A9B9AE;
+    text-align: center;
+    font-size: 72px;
+    line-height: 400px;
+    font-family: Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+    text-decoration: none;
+}
+
+.left:hover,
+.right:hover {
+    cursor: pointer;
 }
 
 .mainPic {
-    display: block;
+    display: inline-block;
     margin: 10px auto;
     position: relative;
     z-index: 1;
     background-color: white;
-    margin-top: -5px;
-    padding-top: 5px;
-    margin-bottom: -10px;
-    padding-bottom: 10px;
 }
 
-@media (max-width: 900px) {
+.event-form,
+.login-form {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+    position: relative;
+}
+
+.event-form>input,
+.login-form>input {
+    margin-top: 20px;
+    width: 400px;
+    font-family: Courier New, Courier, monospace;
+    height: 35px;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.eventsBody {
+    background-image: url("../images/pels_back3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    padding-top: 60px;
+}
+
+.rowContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.rowContainer>div {
+    margin: 20px;
+    width: 100%;
+}
+
+.eventListing {
+    border: 1px solid black;
+    margin: -1px 0;
+}
+
+@media (max-width: 1050px) {
     .header {
         height: 40px;
         min-width: 525px;
@@ -182,9 +245,6 @@ h3 {
     }
     li {
         margin: 0 10px;
-    }
-    li a {
-        font-size: 12px;
     }
     .logo {
         margin: -320px 0 0 -250px;
@@ -212,20 +272,29 @@ h3 {
         width: 100%;
     }
     .hours {
-        height: 10px;
-    }
-    .gallery {
-        margin-top: -10px;
-        padding-top: 5px;
+        height: 400px;
     }
     .mainPic {
-        height: 350px;
+        height: 262px;
         width: 350px;
+    }
+    .left,
+    .right {
+        line-height: 262px;
+    }
+    .google {
+        height: 400px;
     }
 }
 
 @media (max-width: 580px) {
     p {
         line-height: 1em;
+    }
+    li a {
+        font-size: 7px;
+    }
+    li {
+        margin: 0 5px;
     }
 }
