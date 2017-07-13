@@ -196,7 +196,8 @@ h3 {
 }
 
 .event-form>input,
-.login-form>input, .event-form>select {
+.login-form>input,
+.event-form>select {
     margin-top: 20px;
     width: 400px;
     font-family: Courier New, Courier, monospace;
@@ -229,6 +230,17 @@ h3 {
 .eventListing {
     border: 1px solid black;
     margin: -1px 0;
+}
+
+.icons {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.social {
+    width: 3vw;
+    height: 3vw;
+    margin: 10px;
 }
 
 @media (max-width: 1050px) {
