@@ -66,7 +66,6 @@ li a {
 }
 
 .flowers,
-.fruit,
 .wallpaper {
     height: 600px;
     background-repeat: no-repeat;
@@ -77,13 +76,8 @@ li a {
     background-image: url("../images/pels_back2.jpg");
 }
 
-.fruit {
-    background-image: url("../images/pels_back4.jpg");
-}
-
 .wallpaper {
     background-image: url("../images/pels_back3.jpg");
-    height: 500px;
 }
 
 .picsContainer {
@@ -186,7 +180,8 @@ h3 {
 }
 
 .event-form,
-.login-form {
+.login-form,
+.order-form {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -197,7 +192,9 @@ h3 {
 
 .event-form>input,
 .login-form>input,
-.event-form>select {
+.event-form>select,
+.order-form>input,
+.order-form>select {
     margin-top: 20px;
     width: 400px;
     font-family: Courier New, Courier, monospace;
@@ -215,6 +212,9 @@ h3 {
 
 .container {
     padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .rowContainer {

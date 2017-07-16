@@ -56,6 +56,15 @@ $(function() {
         $('.mainPic').attr('src', "images/" + pics[counter]);
     }, 3000);
 
+    const randomString = function() {
+        let text = "";
+        const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-";
+        for(i = 0; i < 38; i++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return text;
+    }
+
 
 
     $(document.body).on('click', '.left', function() {
@@ -133,4 +142,27 @@ $(function() {
             }
         });
     });
+
+    $('.order-form').on('submit', (e) => {
+        e.preventDefault();
+
+        const id = $('.pie-input').val();
+
+        const itemId = {
+            id: id,
+            key: randomString()
+        }
+
+        $.ajax({
+            method: 'POST',
+            url: `/order/`,
+            data: itemId,
+            success: response => {
+                window.location.replace('/order/confirm')
+            },
+            error: msg => {
+                console.log(msg);
+            }
+        });
+    })
 })

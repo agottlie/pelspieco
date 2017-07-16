@@ -9,7 +9,7 @@ let transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // secure:true for port 465, secure:false for port 587
     auth: {
-        user: 'agottlie@gmail.com',
+        user: 'buttercup.alison',
         pass: process.env.GOOGLE_PASS
     }
 });
@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
         event_time = req.body.event_time;
 
     let mailOptions = {
-        from: '"Andrew Gottlieb" <agottlie@gmail.com>', // sender address
+        from: '"Alison" <buttercup.alison@gmail.com>', // sender address
         to: 'agottlie@gmail.com', // list of receivers
         subject: `Event Details for ${first_name} ${last_name}`, // Subject line
         html:  `<h3>Email: ${email}</h3> 
