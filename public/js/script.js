@@ -1,6 +1,7 @@
 $(function() {
     console.log("js connected");
     let counter = 0;
+    let cartTotal = 0;
     const pics = [
         "img_8857_2.jpg",
         "img_8912.jpg",
@@ -14,7 +15,8 @@ $(function() {
         "piew_drizzle.jpg",
         "pumpkins1.jpg",
         "boxed up-crop-u1503.jpg"
-    ]
+    ];
+    let pies = [];
 
     flatpickr(".date-input", { altInput: true, minDate: "today" });
     flatpickr(".time-input", {
@@ -59,13 +61,13 @@ $(function() {
     const randomString = function() {
         let text = "";
         const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-";
-        for(i = 0; i < 38; i++) {
+        for (i = 0; i < 38; i++) {
             text += possible.charAt(Math.floor(Math.random() * possible.length));
         }
         return text;
     }
 
-
+    $('.totalValue').text(cartTotal);
 
     $(document.body).on('click', '.left', function() {
         if (counter <= 0) {
@@ -143,26 +145,82 @@ $(function() {
         });
     });
 
+    //for sending to review page
     $('.order-form').on('submit', (e) => {
         e.preventDefault();
 
-        const id = $('.pie-input').val();
-
-        const itemId = {
-            id: id,
-            key: randomString()
-        }
-
         $.ajax({
             method: 'POST',
-            url: `/order/`,
-            data: itemId,
+            url: `/order/review`,
+            data: { pies, cartTotal: cartTotal },
             success: response => {
-                window.location.replace('/order/confirm')
+                window.location.replace('/order/review');
             },
             error: msg => {
                 console.log(msg);
             }
         });
     })
+
+    //for sending to square payment
+    $('.review').on('submit', (e) => {
+        e.preventDefault();
+
+        let items = [],
+            key = randomString(),
+            deliveryValue = false;
+
+        if ($('input[name="method"]:checked').val() === "Delivery") {
+            deliveryValue = true;
+        }
+
+        for (i = 0; i < $('.cartItem').length; i++) {
+            let newItem = {};
+            newItem.id = $('.cartItem').eq(i).data('id');
+            newItem.quantity = $('.cartItem').eq(i).data('quantity');
+            newItem.name = $('.cartItem').eq(i).data('name');
+            newItem.amount = $('.cartItem').eq(i).data('amount');
+            items.push(newItem);
+        }
+        
+        $.ajax({
+            method: 'POST',
+            url: `/order/`,
+            data: { items, key: key, deliveryValue: deliveryValue },
+            success: response => {
+                window.location.replace(`https://connect.squareup.com/v2/checkout?c=${response.id}&l=EYXHZ8T51YJ2A`);
+            },
+            error: msg => {
+                console.log(msg);
+            }
+        });
+    })
+
+    $(".add").on('click', () => {
+        let newItem = $('<div class="cartItem">');
+        newItem.html($('.pie-input option:selected').attr('name') + "&nbsp; &nbsp; x " + $('.quantity').val() + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $" + parseInt($('.quantity').val()) * 30 + ".00");
+        $('.cart').prepend(newItem);
+        cartTotal += parseInt($('.quantity').val()) * 30;
+        $('.totalValue').text(cartTotal);
+        let pie = {}
+        pie.id = $('.pie-input').val();
+        pie.quantity = $('.quantity').val();
+        pie.name = $('.pie-input option:selected').attr('name');
+        pie.amount = parseInt(pie.quantity) * 30;
+        pies.push(pie);
+
+        $('.cartBox').css("display", "block");
+        $('.emptyCart').css("display", "block");
+    });
+
+    $(".remove").on('click', () => {
+        $('.cart').empty();
+        cartItems = [];
+        quantities = [];
+        cartTotal = 0;
+        $('.cartBox').css("display", "none");
+        $('.emptyCart').css("display", "none");
+
+    });
+
 })

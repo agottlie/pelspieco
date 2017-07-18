@@ -27,28 +27,24 @@
             </ul>
         </div>
     </div>
-    <div class="container">
-        <h1>Choose Your Pie</h1>
-        <form class="order-form">
-            <div class="addItem">
-                <select class="pie-input input" placeholder="Type of Pie*" style="width:auto; height:45px" required/> {{#data.data.object.item_data.variations}}
-                <option value="{{id}}" name="{{item_variation_data.name}}">{{item_variation_data.name}} -- $30</option>
-                {{/data.data.object.item_data.variations}}
-                </select>
-                <label>Quantity</label>
-                <input type="text" class="quantity" value="1">
-                <p class="add">Add</p>
+    <form class="review">
+        <div class="reviewContainer">
+            <h1>Order Summary</h1>
+            <div class="cartBoxReview">
+                <div class="cart">
+                    {{#pies}}
+                    <div class="cartItem" data-id="{{id}}" data-amount="{{amount}}" data-quantity="{{quantity}}" data-name="{{name}}">{{name}} &nbsp; &nbsp; x{{quantity}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${{amount}}.00</div>
+                    {{/pies}}
+                </div>
+                <div class="total">Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="totalValueReview">{{cartTotal}}</span>.00</div>
             </div>
-            <div class="cartBox">
-                <div class="cart"></div>
-                <div class="total">Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="totalValue"></span>.00</div>
+            <div class="deliveryOrPickup">
+                <input type="radio" name="method" value="Pickup" checked> Pickup
+                <input type="radio" name="method" value="Delivery"> Delivery
             </div>
-            <div class="emptyCart">
-                <p class="remove">Empty Cart</p>
-            </div>
-            <input type="submit" class="submit" value="Continue" style="width:250px; margin-top: 100px">
-        </form>
-    </div>
+            <input type="submit" class="submit" value="Proceed to Checkout" style="width:300px; margin-top: 100px">
+        </div>
+    </form>
 </body>
 
 </html>
