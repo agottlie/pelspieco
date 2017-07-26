@@ -2,49 +2,31 @@ const axios = require('axios');
 const util = require('util');
 
 function passOrder(data) {
-    // console.log("DATA FROM INSIDE THE SERVICE")
-    // console.log(data);
 
     const queryPromise = axios({
             url: `https://connect.squareup.com/v2/locations/EYXHZ8T51YJ2A/checkouts`,
             method: 'POST',
             data: data,
             headers: {
-                'Authorization': 'Bearer sq0atp-lvYsCiFTP3Hk_XIkZbI1bQ',
+                'Authorization': `Bearer ${process.env.SQUARE_AUTH}`,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         })
-        // .then(function(response) {
-        //         console.log(response);
-        //     })
-        //     .catch(function(error) {
-        //         console.log("ERRORRR" + util.inspect(error.response.data));
-        //     });
 
     return queryPromise;
 };
 
-function findItems(ids) {
+function findTransaction(id) {
     const queryPromise = axios({
-            url: `https://connect.squareup.com/v2/catalog/batch-retrieve`,
-            method: 'POST',
-            data: {
-                "object_ids": ids,
-                "include_related_objects": false
-            },
+            url: `https://connect.squareup.com/v2/locations/EYXHZ8T51YJ2A/transactions/${id}`,
+            method: 'GET',
             headers: {
-                'Authorization': 'Bearer sq0atp-lvYsCiFTP3Hk_XIkZbI1bQ',
+                'Authorization': `Bearer ${process.env.SQUARE_AUTH}`,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         })
-        // .then(function(response) {
-        //         console.log("CORRECT" + util.inspect(response.data.objects));
-        //     })
-        //     .catch(function(error) {
-        //         console.log("ERRORRR" + util.inspect(error.response.data));
-        //     });
 
     return queryPromise;
 }
@@ -54,7 +36,7 @@ function findAllPies() {
         url: `https://connect.squareup.com/v2/catalog/object/NPKDYGON7FKWNST7XE3V75Z6`,
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer sq0atp-lvYsCiFTP3Hk_XIkZbI1bQ',
+            'Authorization': `Bearer ${process.env.SQUARE_AUTH}`,
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
@@ -63,4 +45,4 @@ function findAllPies() {
     return queryPromise;
 }
 
-module.exports = { passOrder, findItems, findAllPies };
+module.exports = { passOrder, findTransaction, findAllPies };

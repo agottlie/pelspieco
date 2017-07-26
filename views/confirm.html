@@ -28,7 +28,19 @@
         </div>
     </div>
     <div class="container">
-        <h1>Thanks for your order!</h1>
+        <h1 class="summary">Thanks for your order!  You should be receiving a confirmation email shortly.</h1>
+        <h1 class="summary">Here is the summary of your purchase:</h1>
+        <div class="reviewContainer">
+            <div class="cartBoxReview">
+                <div class="cart">
+                    {{#line_items}}
+                    <div class="cartItem" data-id="{{id}}" data-amount="{{amount}}" data-quantity="{{quantity}}" data-name="{{name}}">{{name}} &nbsp; &nbsp; x{{quantity}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${{total_money.amount}}.00</div>
+                    {{/line_items}}
+                </div>
+                <div class="total">Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="totalValueReview">{{total_money.amount}}</span>.00</div>
+            </div>
+        </div>
+        <h2 class="summary">{{delivery}}</h2>
     </div>
 </body>
 

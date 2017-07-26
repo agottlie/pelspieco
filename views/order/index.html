@@ -31,7 +31,7 @@
         <h1>Choose Your Pie</h1>
         <form class="order-form">
             <div class="addItem">
-                <select class="pie-input input" placeholder="Type of Pie*" style="width:auto; height:45px" required/> {{#data.data.object.item_data.variations}}
+                <select class="pie-input input" placeholder="Type of Pie*" required/> {{#data.data.object.item_data.variations}}
                 <option value="{{id}}" name="{{item_variation_data.name}}">{{item_variation_data.name}} -- $30</option>
                 {{/data.data.object.item_data.variations}}
                 </select>
