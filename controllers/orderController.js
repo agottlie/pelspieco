@@ -1,7 +1,9 @@
 const Order = require('../services/square');
+const OrderModel = require('../models/orders')
 const router = require('express').Router();
 const util = require('util');
 let orderData = {};
+let inventory = {};
 
 router.get('/', (req, res) => {
     orderData = {};
@@ -15,6 +17,31 @@ router.get('/', (req, res) => {
 
 router.get('/review/', (req, res) => {
     res.render("order/review", orderData);
+})
+
+router.get('/login', (req, res) => {
+    res.render('order/login');
+})
+
+router.get('/show', (req, res) => {
+    res.render('order/show', inventory)
+})
+
+router.put('/login', (req, res) => {
+    const password = req.body.password;
+
+    OrderModel
+        .checkPassword(password)
+        .then(data => {
+            console.log(data);
+            let pieList = [];
+            data.forEach(pie => {
+                pieList.push()
+            })
+            inventory.data = data;
+            res.render('order/show')
+        })
+
 })
 
 router.post('/review/', (req, res) => {

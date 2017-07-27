@@ -180,7 +180,8 @@ h3 {
 }
 
 .event-form,
-.login-form,
+.order-login-form,
+.event-login-form,
 .order-form,
 .review {
     display: flex;
@@ -195,7 +196,8 @@ h3 {
 }
 
 .event-form>input,
-.login-form>input,
+.order-login-form>input,
+.event-login-form>input,
 .event-form>select,
 .order-form>input,
 .order-form>div>select,

@@ -13,10 +13,28 @@
 </head>
 
 <body>
-    <form class="event-login-form">
-        <input class="password-input input" placeholder="Password*" required />
-        <input type="submit" class="submit" value="Submit" style="width:200px">
-    </form>
+    <div class="rowContainer">
+        <div>Email</div>
+        <div>First Name</div>
+        <div>Last Name</div>
+        <div>Phone Number</div>
+        <div># of People</div>
+        <div>Type of Event</div>
+        <div>Date</div>
+        <div>Time</div>
+    </div>
+    {{#data}}
+    <div class="rowContainer eventListing">
+        <div>{{email}}</div>
+        <div>{{first_name}}</div>
+        <div>{{last_name}}</div>
+        <div>{{phone}}</div>
+        <div>{{num_people}}</div>
+        <div>{{type_of_event}}</div>
+        <div>{{event_date}}</div>
+        <div>{{event_time}}</div>
+    </div>
+    {{/data}}
 </body>
 
 </html>
