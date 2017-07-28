@@ -180,8 +180,7 @@ h3 {
 }
 
 .event-form,
-.order-login-form,
-.event-login-form,
+.login-form,
 .order-form,
 .review {
     display: flex;
@@ -196,8 +195,7 @@ h3 {
 }
 
 .event-form>input,
-.order-login-form>input,
-.event-login-form>input,
+.login-form>input,
 .event-form>select,
 .order-form>input,
 .order-form>div>select,
@@ -241,12 +239,14 @@ h3 {
 
 .submit,
 .add,
-.thanks {
+.thanks,
+.delete {
     box-shadow: 4px 4px 4px #888888;
 }
 
 .quantity,
-.add {
+.add,
+.delete {
     display: inline;
     width: 30px;
     text-align: center;
@@ -255,13 +255,22 @@ h3 {
 }
 
 .add,
-.remove {
+.remove,
+.delete {
     border: 1px solid black;
     padding: 5px;
 }
 
 .add {
     width: 50px;
+}
+
+.inline {
+    display: inline;
+}
+
+.inventoryItem {
+    height: 40px;
 }
 
 .remove,
@@ -273,7 +282,8 @@ h3 {
 }
 
 .add:hover,
-.remove:hover {
+.remove:hover,
+.delete:hover {
     cursor: pointer;
 }
 

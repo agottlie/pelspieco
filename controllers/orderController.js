@@ -1,9 +1,7 @@
 const Order = require('../services/square');
-const OrderModel = require('../models/orders')
 const router = require('express').Router();
 const util = require('util');
 let orderData = {};
-let inventory = {};
 
 router.get('/', (req, res) => {
     orderData = {};
@@ -11,37 +9,19 @@ router.get('/', (req, res) => {
     Order
         .findAllPies()
         .then(data => {
-            res.render('order/index', { data });
+            let pieData = [];
+            data.data.object.item_data.variations.forEach(pie => {
+                if (pie.present_at_location_ids) {
+                    pieData.push(pie);
+                }
+            })
+            data.data.object.item_data.variations = pieData;
+            res.render('order/index', {data});
         })
 });
 
 router.get('/review/', (req, res) => {
     res.render("order/review", orderData);
-})
-
-router.get('/login', (req, res) => {
-    res.render('order/login');
-})
-
-router.get('/show', (req, res) => {
-    res.render('order/show', inventory)
-})
-
-router.put('/login', (req, res) => {
-    const password = req.body.password;
-
-    OrderModel
-        .checkPassword(password)
-        .then(data => {
-            console.log(data);
-            let pieList = [];
-            data.forEach(pie => {
-                pieList.push()
-            })
-            inventory.data = data;
-            res.render('order/show')
-        })
-
 })
 
 router.post('/review/', (req, res) => {

@@ -122,7 +122,7 @@ $(function() {
         });
     });
 
-    $('.event-login-form').on('submit', (e) => {
+    $('.login-form').on('submit', (e) => {
         e.preventDefault();
 
         const password = $('.password-input').val();
@@ -137,29 +137,6 @@ $(function() {
             data: passData,
             success: response => {
                 window.location.replace('/events/show')
-            },
-            error: msg => {
-                console.log(msg);
-                alert("incorrect password");
-            }
-        });
-    });
-
-    $('.order-login-form').on('submit', (e) => {
-        e.preventDefault();
-
-        const password = $('.password-input').val();
-
-        const passData = {
-            password: password
-        }
-
-        $.ajax({
-            method: 'PUT',
-            url: `/order/login`,
-            data: passData,
-            success: response => {
-                window.location.replace('/order/show')
             },
             error: msg => {
                 console.log(msg);
