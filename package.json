@@ -26,6 +26,7 @@
     "mustache-express": "^1.2.5",
     "nodemailer": "^4.0.1",
     "pg-promise": "^6.3.1",
+    "promise-mysql": "^3.0.2",
     "util": "^0.10.3"
   },
   "devDependencies": {}
