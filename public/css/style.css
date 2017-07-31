@@ -319,12 +319,14 @@ h3 {
 }
 
 .total,
-.cartItem {
+.cartItem,
+.shipping {
     font-size: 20px;
     margin: 10px;
 }
 
-.total {
+.total,
+.shipping {
     margin-top: 30px;
 }
 

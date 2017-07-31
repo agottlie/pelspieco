@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
                 }
             })
             data.data.object.item_data.variations = pieData;
-            res.render('order/index', {data});
+            res.render('order/index', { data });
         })
 });
 
@@ -48,21 +48,39 @@ router.post('/', (req, res) => {
         "redirect_url": "http://pelspieco.com/confirm/"
     }
 
+    let quantity = 0;
+
     for (let i = 0; i < items.items.length; i++) {
         let lineItem = {
             "name": items.items[i].name,
             "quantity": items.items[i].quantity,
             "base_price_money": {
-                "amount": 100,
+                "amount": 3000,
                 "currency": "USD"
             }
         }
         data.order.line_items.push(lineItem);
+        quantity += parseInt(items.items[i].quantity);
+        console.log("QUANTITY:" + quantity);
     }
+
+
+    const quantityAmount = (quantity + 1) * 500;
+
+    console.log(util.inspect(data.order.line_items));
 
     if (delivery === "true") {
         data.ask_for_shipping_address = true;
         data.order.reference_id = "delivery"
+        let lineItem = {
+            "name": "Shipping",
+            "quantity": '1',
+            "base_price_money": {
+                "amount": quantityAmount,
+                "currency": "USD"
+            }
+        }
+        data.order.line_items.push(lineItem);
     } else {
         data.order.reference_id = "pickup"
     }

@@ -16,7 +16,8 @@ $(function() {
         "pumpkins1.jpg",
         "boxed up-crop-u1503.jpg"
     ];
-    let pies = [];
+    let pies = [],
+        shipping = 0;
 
     flatpickr(".date-input", { altInput: true, minDate: "today" });
     flatpickr(".time-input", {
@@ -148,11 +149,14 @@ $(function() {
     //for sending to review page
     $('.order-form').on('submit', (e) => {
         e.preventDefault();
-
+        if (shipping > 0) {
+            shipping = (shipping + 1) * 5;
+            cartTotal += shipping;
+        }
         $.ajax({
             method: 'POST',
             url: `/order/review`,
-            data: { pies, cartTotal: cartTotal },
+            data: { pies, cartTotal: cartTotal, shipping: shipping },
             success: response => {
                 window.location.replace('/order/review');
             },
@@ -172,6 +176,8 @@ $(function() {
 
         if ($('input[name="method"]:checked').val() === "Delivery") {
             deliveryValue = true;
+        } else {
+            shipping = 0;
         }
 
         for (i = 0; i < $('.cartItem').length; i++) {
@@ -182,11 +188,11 @@ $(function() {
             newItem.amount = $('.cartItem').eq(i).data('amount');
             items.push(newItem);
         }
-        
+
         $.ajax({
             method: 'POST',
             url: `/order/`,
-            data: { items, key: key, deliveryValue: deliveryValue },
+            data: { items, key: key, deliveryValue: deliveryValue, shipping: shipping },
             success: response => {
                 window.location.replace(`https://connect.squareup.com/v2/checkout?c=${response.id}&l=EYXHZ8T51YJ2A`);
             },
@@ -208,6 +214,7 @@ $(function() {
         pie.name = $('.pie-input option:selected').attr('name');
         pie.amount = parseInt(pie.quantity) * 30;
         pies.push(pie);
+        shipping += parseInt($('.quantity').val());
 
         $('.cartBox').css("display", "block");
         $('.emptyCart').css("display", "block");
@@ -217,10 +224,21 @@ $(function() {
         $('.cart').empty();
         cartItems = [];
         quantities = [];
+        pies = [];
         cartTotal = 0;
+        shipping = 0;
         $('.cartBox').css("display", "none");
         $('.emptyCart').css("display", "none");
-
     });
+
+    $('input[name="method"]').on('change', () => {
+        if ($('input[name="method"]:checked').val() === "Delivery") {
+            $('.shipping').css('display', 'block');
+            $('.totalValueReview').text(parseInt($('.totalValueReview').text())+parseInt($('#shipping').text()));
+        } else {
+            $('.shipping').css('display', 'none');
+            $('.totalValueReview').text(parseInt($('.totalValueReview').text())-parseInt($('#shipping').text()));
+        }
+    })
 
 })

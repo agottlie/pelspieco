@@ -35,12 +35,13 @@
                     {{#pies}}
                     <div class="cartItem" data-id="{{id}}" data-amount="{{amount}}" data-quantity="{{quantity}}" data-name="{{name}}">{{name}} &nbsp; &nbsp; x{{quantity}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${{amount}}.00</div>
                     {{/pies}}
+                    <div class="shipping">Shipping: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span id="shipping">{{shipping}}</span>.00</div>
                 </div>
                 <div class="total">Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="totalValueReview">{{cartTotal}}</span>.00</div>
             </div>
             <div class="deliveryOrPickup">
-                <input type="radio" name="method" value="Pickup" checked> Pickup
-                <input type="radio" name="method" value="Delivery"> Delivery
+                <input type="radio" name="method" value="Pickup"> Pickup
+                <input type="radio" name="method" value="Delivery" checked> Delivery
             </div>
             <input type="submit" class="submit" value="Proceed to Checkout" style="width:300px; margin-top: 100px">
             <a class="back" href="/order">Back</a>

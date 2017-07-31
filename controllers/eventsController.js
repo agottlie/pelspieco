@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 
     let mailOptions = {
         from: '"Alison" <buttercup.alison@gmail.com>', // sender address
-        to: 'alison.pels@gmail.com', // list of receivers
+        to: 'buttercup.alison@gmail.com', // list of receivers
         subject: `Event Details for ${first_name} ${last_name}`, // Subject line
         html:  `<h3>Email: ${email}</h3> 
                 <h3>First Name: ${first_name}</h3>
