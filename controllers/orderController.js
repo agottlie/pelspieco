@@ -3,9 +3,11 @@ const router = require('express').Router();
 const util = require('util');
 let orderData = {};
 
+//ordering 'GET' routes
 router.get('/', (req, res) => {
     orderData = {};
 
+    //loads all pies in stock (from Square) into an array
     Order
         .findAllPies()
         .then(data => {
@@ -24,20 +26,17 @@ router.get('/review/', (req, res) => {
     res.render("order/review", orderData);
 })
 
+//sends data for the review page
 router.post('/review/', (req, res) => {
     orderData = req.body;
     res.render("order/review", orderData);
 })
 
+//sends data to Square payment page and redirects user to Square upon completion
 router.post('/', (req, res) => {
-
     const items = req.body,
         key = req.body.key,
         delivery = req.body.deliveryValue;
-
-    console.log("ITEMS: " + util.inspect(items));
-    console.log("KEY: " + key);
-    console.log("DELIVERY: " + delivery);
 
     let data = {
         "idempotency_key": key,
@@ -50,6 +49,7 @@ router.post('/', (req, res) => {
 
     let quantity = 0;
 
+    //adds a new element onto the checkout object for each item in the cart
     for (let i = 0; i < items.items.length; i++) {
         let lineItem = {
             "name": items.items[i].name,
@@ -61,14 +61,12 @@ router.post('/', (req, res) => {
         }
         data.order.line_items.push(lineItem);
         quantity += parseInt(items.items[i].quantity);
-        console.log("QUANTITY:" + quantity);
     }
 
-
+    //calculates shipping cost
     const quantityAmount = (quantity + 1) * 500;
 
-    console.log(util.inspect(data.order.line_items));
-
+    //adds a shipping cost for delivery orders
     if (delivery === "true") {
         data.ask_for_shipping_address = true;
         data.order.reference_id = "delivery"
@@ -85,6 +83,7 @@ router.post('/', (req, res) => {
         data.order.reference_id = "pickup"
     }
 
+    //sends the order to Square
     Order
         .passOrder(data)
         .then((result) => {

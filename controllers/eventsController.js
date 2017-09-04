@@ -4,17 +4,18 @@ const nodemailer = require('nodemailer');
 
 const eventsData = {};
 
+//credentials for mailer
 let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
-    secure: true, // secure:true for port 465, secure:false for port 587
+    secure: true,
     auth: {
         user: 'buttercup.alison',
         pass: process.env.GOOGLE_PASS
     }
 });
 
-
+//events 'GET" routes
 router.get('/', (req, res) => {
     res.render('events/index');
 })
@@ -31,6 +32,7 @@ router.get('/show', (req, res) => {
     res.render('events/show', eventsData);
 })
 
+//event inquiry submit route
 router.post('/', (req, res) => {
     const email = req.body.email,
         first_name = req.body.first_name,
@@ -55,7 +57,7 @@ router.post('/', (req, res) => {
                 <h3>Event Time: ${event_time}</h3>` // html body
     };
 
-
+    //create an event object in the db and send notification email
     Events
         .create(email, first_name, last_name, phone, num_people, type_of_event, event_time, event_date)
         .then(data => {
@@ -70,6 +72,7 @@ router.post('/', (req, res) => {
         .catch(err => console.log('ERROR: ', err));
 });
 
+//admin login route
 router.put('/login', (req, res) => {
     const password = req.body.password;
 

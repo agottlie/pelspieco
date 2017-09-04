@@ -31,10 +31,12 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+//renders the confirmation page
 app.get('/confirm', (req, res) => {
     let id = req.query.transactionId;
     let delivery = req.query.referenceId;
 
+    //gets transacation info based on what's passed back from successful Square transaction
     Order
         .findTransaction(id)
         .then(data => {
@@ -53,4 +55,5 @@ app.get('/confirm', (req, res) => {
         })
 });
 
+//connected to port confirmation
 app.listen(PORT, () => console.log('Server listening on port', PORT));

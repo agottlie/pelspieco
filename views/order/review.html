@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- header -->
     <div class="header">
         <img class="pie" src="../images/pieslice1-05.png">
         <div class="headerList">
@@ -27,9 +28,13 @@
             </ul>
         </div>
     </div>
+
+    <!-- main body -->
     <form class="review">
         <div class="reviewContainer">
             <h1>Order Summary</h1>
+            
+            <!-- current shopping cart -->
             <div class="cartBoxReview">
                 <div class="cart">
                     {{#pies}}
@@ -39,11 +44,17 @@
                 </div>
                 <div class="total">Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="totalValueReview">{{cartTotal}}</span>.00</div>
             </div>
+
+            <!-- delivery or pickup choice -->
             <div class="deliveryOrPickup">
                 <input type="radio" name="method" value="Pickup"> Pickup
                 <input type="radio" name="method" value="Delivery" checked> Delivery
             </div>
+
+            <!-- submit button -->
             <input type="submit" class="submit" value="Proceed to Checkout" style="width:300px; margin-top: 100px">
+
+            <!-- back button -->
             <a class="back" href="/order">Back</a>
         </div>
     </form>

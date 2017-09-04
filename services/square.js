@@ -1,8 +1,9 @@
 const axios = require('axios');
 const util = require('util');
 
-function passOrder(data) {
 
+//sends order details to Square's payment page
+function passOrder(data) {
     const queryPromise = axios({
             url: `https://connect.squareup.com/v2/locations/EYXHZ8T51YJ2A/checkouts`,
             method: 'POST',
@@ -17,6 +18,7 @@ function passOrder(data) {
     return queryPromise;
 };
 
+//retrieves transaction data
 function findTransaction(id) {
     const queryPromise = axios({
             url: `https://connect.squareup.com/v2/locations/EYXHZ8T51YJ2A/transactions/${id}`,
@@ -31,6 +33,7 @@ function findTransaction(id) {
     return queryPromise;
 }
 
+//queries Square for all pies currently in stock
 function findAllPies() {
     const queryPromise = axios({
         url: `https://connect.squareup.com/v2/catalog/object/NPKDYGON7FKWNST7XE3V75Z6`,

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- header -->
     <div class="header">
         <img class="pie" src="../images/pieslice1-05.png">
         <div class="headerList">
@@ -27,9 +28,12 @@
             </ul>
         </div>
     </div>
+
+    <!-- main body -->
     <div class="container">
         <h1>Choose Your Pie</h1>
         <form class="order-form">
+            <!-- add item -->
             <div class="addItem">
                 <select class="pie-input input" placeholder="Type of Pie*" required/> {{#data.data.object.item_data.variations}}
                 <option value="{{id}}" name="{{item_variation_data.name}}">{{item_variation_data.name}} -- 30</option>
@@ -39,13 +43,19 @@
                 <input type="text" class="quantity" value="1">
                 <p class="add">Add</p>
             </div>
+
+            <!-- shopping cart -->
             <div class="cartBox">
                 <div class="cart"></div>
                 <div class="total">Subtotal: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $<span class="totalValue"></span>.00</div>
             </div>
+
+            <!-- empty cart button -->
             <div class="emptyCart">
                 <p class="remove">Empty Cart</p>
             </div>
+
+            <!-- submit button -->
             <input type="submit" class="submit" value="Continue" style="width:250px; margin-top: 100px">
         </form>
     </div>
