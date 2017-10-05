@@ -21,6 +21,108 @@ $(function() {
         counter = 0,
         cartTotal = 0;
 
+    let pieInfo = {
+        "Raspberry Almond Frangipane": {
+            "description": "Fresh raspberries in soft almond cream.",
+            "photo": ""
+        },
+        "Country Apple": {
+            "description": "Tart apple pieces in a buttery-sweet sauce with plenty of spices.",
+            "photo": ""
+        },
+        "Grapefruit Honey Lavender": {
+            "description": "Mellow citrus custard topped with a fluffy layer of honey and lavender flowers.",
+            "photo": ""
+        },
+        "Fig Buttermilk": {
+            "description": "Mediterranean figs blended with honey, lemon and spices in a tangy buttermilk custard.",
+            "photo": ""
+        },
+        "Black Bottom Pumpkin": {
+            "description": "Creamy browned butter pumpkin spice filling covering dark chocolate ganache.",
+            "photo": ""
+        },
+        "Pecan": {
+            "description": "Classic buttery pecan pie with vanilla (and no corn syrup).",
+            "photo": ""
+        },
+        "Baked Chocolate": {
+            "description": "Just set chocolate custard, light and creamy.",
+            "photo": ""
+        },
+        "Passionfruit Custard": {
+            "description": "Tangy passionfruit custard with a fluffy top layer.",
+            "photo": ""
+        },
+        "Blueberry Cobbler Pie": {
+            "description": "Juicy blueberries in our famous buttery crust with a cobbler topping.",
+            "photo": ""
+        },
+        "Peach Cobbler Pie": {
+            "description": "Fresh peach halves baked in our famous buttery crust with a cobbler topping.",
+            "photo": ""
+        },
+        "Roasted Red Pepper Cheddar Frittata": {
+            "description": "Roasted red pepper and sharp cheddar in a savory egg custard with nutmeg and herbs de province (keto friendly).",
+            "photo": ""
+        },
+        "Spinach Ricotta Frittata": {
+            "description": "Spinach and fresh ricotta cheese baked in a savory egg custard with nutmeg and herbs de province (keto friendly).",
+            "photo": ""
+        },
+        "Bacon Cheddar Frittata": {
+            "description": "Crispy bacon and sharp cheddar in a savory egg custard with nutmeg and herbs de province (keto friendly).",
+            "photo": ""
+        },
+        "Tomato Basil Cheddar Pie": {
+            "description": "Fresh tomatoes and basil pesto baked in our famous buttery crust with sharp cheddar and Dijon sauce on top.",
+            "photo": ""
+        },
+        "Pear Almond Frangipane": {
+            "description": "Fresh pears in soft almond cream.",
+            "photo": ""
+        },
+        "Chocolate Mousse": {
+            "description": "",
+            "photo": ""
+        },
+        "Peach": {
+            "description": "",
+            "photo": ""
+        },
+        "Blueberry": {
+            "description": "",
+            "photo": ""
+        },
+        "Coconut Custard": {
+            "description": "",
+            "photo": ""
+        },
+        "Sweet Potato Marshmallow": {
+            "description": "",
+            "photo": ""
+        },
+        "Banana Creme": {
+            "description": "",
+            "photo": ""
+        },
+        "Cherry": {
+            "description": "",
+            "photo": ""
+        },
+        "Black Forest Cherry": {
+            "description": "",
+            "photo": ""
+        },
+        "Strawberry Rhubarb": {
+            "description": "",
+            "photo": ""
+        },
+        "Rhubarb": {
+            "description": "",
+            "photo": ""
+        },
+    };
 
 
 //---------------MAIN PAGE SETUP-------------------
@@ -104,6 +206,16 @@ $(function() {
         }
         return text;
     }
+
+    //fills description and photo
+    $(document).ready(function() {
+        $('.pieDescription').text(pieInfo[$('.pie-input option:selected').attr('name')].description);
+        $('.pieImage').attr("src", pieInfo[$('.pie-input option:selected').attr('name')].photo)
+    })
+    $(".addItem").on('change', () => {
+        $('.pieDescription').text(pieInfo[$('.pie-input option:selected').attr('name')].description);
+        $('.pieImage').attr("src", pieInfo[$('.pie-input option:selected').attr('name')].photo)
+    })
 
     //adds an item to teh shopping cart
     $(".add").on('touchstart click', () => {

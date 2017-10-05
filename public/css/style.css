@@ -190,14 +190,13 @@ h3 {
 }
 
 .icons {
-    text-align: center;
-    margin-top: 5%;
+    margin-top: 3vh;
 }
 
 .social {
     width: 3vw;
     height: 3vw;
-    margin: 10px;
+    margin: 0px;
 }
 /*----------------end main page-----------------------*/
 
@@ -337,6 +336,11 @@ h3 {
 .rowContainer>div {
     margin: 20px;
     width: 100%;
+}
+
+.pieSelection {
+    margin-top: 5vh;
+    font-size: 15px;
 }
 /*-----------------end orders page-----------------------*/
 
@@ -479,7 +483,7 @@ h3 {
     }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 800px) {
     p {
         line-height: 1em;
     }
