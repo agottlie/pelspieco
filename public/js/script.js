@@ -27,7 +27,7 @@ $(function() {
             "photo": ""
         },
         "Country Apple": {
-            "description": "Tart apple pieces in a buttery-sweet sauce with plenty of spices.",
+            "description": "Tart apple pieces in a buttery-sweet sauce with plenty of spices in a double crust.",
             "photo": ""
         },
         "Grapefruit Honey Lavender": {
@@ -83,43 +83,43 @@ $(function() {
             "photo": ""
         },
         "Chocolate Mousse": {
-            "description": "",
+            "description": "Light and chilled Italian meringue mousse.",
             "photo": ""
         },
         "Peach": {
-            "description": "",
+            "description": "Fresh peach halves baked in our famous buttery double crust.",
             "photo": ""
         },
         "Blueberry": {
-            "description": "",
+            "description": "Juicy blueberries in our famous buttery double crust.",
             "photo": ""
         },
         "Coconut Custard": {
-            "description": "",
+            "description": "Toasted coconut based in a rich, creamy custard.",
             "photo": ""
         },
         "Sweet Potato Marshmallow": {
-            "description": "",
+            "description": "Brown butter, sweet potato filling with toasted marshmallows on top.",
             "photo": ""
         },
         "Banana Creme": {
-            "description": "",
+            "description": "Chilled banana custard with thin slices of fresh banana.",
             "photo": ""
         },
         "Cherry": {
-            "description": "",
+            "description": "Succulent cherries in our famous buttery double crust.",
             "photo": ""
         },
         "Black Forest Cherry": {
-            "description": "",
+            "description": "Dark chocolate custard studded with plump, fresh cherries.",
             "photo": ""
         },
         "Strawberry Rhubarb": {
-            "description": "",
+            "description": "Tangy rhubarb baked with sweet fresh strawberries in a buttery lattice-topped crust.",
             "photo": ""
         },
         "Rhubarb": {
-            "description": "",
+            "description": "Tangy rhubarb baked in a buttery lattice-topped crust.",
             "photo": ""
         },
     };
