@@ -218,7 +218,7 @@ $(function() {
     })
 
     //adds an item to teh shopping cart
-    $(".add").on('touchstart click', () => {
+    $(".add").on('click', () => {
         //checks to make sure quantity is a positive integer
         if ($('.quantity').val() > 0 && $('.quantity').val()%1 === 0) {
             let newItem = $('<div class="cartItem">');
