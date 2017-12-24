@@ -16,7 +16,7 @@
     <!-- header -->
     <div class="header">
         <img class="pie" src="./images/pieslice1-05.png">
-        <div class="headerList">
+        <div class="desktop">
             <ul>
                 <li><a href="#welcome">WELCOME</a></li>
                 <li><a href="#gallery">GALLERY</a></li>
@@ -24,33 +24,46 @@
                 <li><a href="#about">ABOUT</a></li>
                 <li><a href="#hours">HOURS &amp; LOCATION</a></li>
                 <li><a href="/events/">EVENTS &amp; CATERING</a></li>
-                <li><a href="/order/">ORDER ONLINE</a></li>
+                <!-- <li><a href="/order/">ORDER ONLINE</a></li> -->
             </ul>
         </div>
+        <div class="mobile">
+            <div class="menu_icon">
+                <div class="menu_icon_bars"></div>
+                <div class="menu_icon_bars"></div>
+                <div class="menu_icon_bars"></div>
+            </div>
+            <div class="dropdown-content">
+                <a href="#welcome">WELCOME</a>
+                <a href="#gallery">GALLERY</a>
+                <a href="#menu">MENU</a>
+                <a href="#about">ABOUT</a>
+                <a href="#hours">HOURS &amp; LOCATION</a>
+                <a href="/events/">EVENTS &amp; CATERING</a>
+                <!-- <a href="/order/">ORDER ONLINE</a> -->
+            </div>
+        </div>
     </div>
-
     <!-- main body -->
     <div class="main">
         <!-- fixed logo -->
         <div class="logo"></div>
-
         <!-- background image, no content -->
         <div class="flowers" id="welcome"></div>
-        
         <!-- image gallery -->
-        <div class="gallery post" id="gallery">
+        <span class="anchor" id="gallery"></span>
+        <div class="gallery post">
             <div class="picToggle">
                 <span class="left">&lt;</span>
                 <img src="images/img_8857_2.jpg" class="mainPic">
                 <span class="right">&gt;</span>
             </div>
         </div>
-
         <!-- background image, no content -->
         <div class="wallpaper"></div>
-
         <!-- menu section -->
-        <div class="menu post" id="menu">
+        <span class="anchor" id="menu"></span>
+        <div class="menu post">
             <!-- menu text -->
             <div class="textbox">
                 <h3>MENU</h3>
@@ -63,12 +76,11 @@
             <!-- menu section image -->
             <img src="images/neon_sign.jpg" class="postpic">
         </div>
-
         <!-- background image, no content -->
         <div class="flowers"></div>
-
         <!-- about section -->
-        <div class="about post" id="about">
+        <span class="anchor" id="about"></span>
+        <div class="about post">
             <!-- about text -->
             <div class="textbox">
                 <h3>ABOUT</h3>
@@ -83,12 +95,11 @@
             <!-- about image -->
             <img src="images/alison.jpg" class="postpic">
         </div>
-
         <!-- background image, no content -->
         <div class="wallpaper"></div>
-
         <!-- hours and location -->
-        <div class="hours post" id="hours">
+        <span class="anchor" id="hours"></span>
+        <div class="hours post">
             <!-- hours and location text -->
             <div class="textbox">
                 <h3>HOURS &amp; LOCATION</h3>

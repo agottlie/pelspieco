@@ -125,8 +125,8 @@ $(function() {
     };
 
 
-//---------------MAIN PAGE SETUP-------------------
-    
+    //---------------MAIN PAGE SETUP-------------------
+
     //flatpickr setup for event date chooser
     flatpickr(".date-input", { altInput: true, minDate: "today" });
     flatpickr(".time-input", {
@@ -159,7 +159,7 @@ $(function() {
     }
 
     //----------PICS CAROUSEL--------------------
-    
+
     //rotates a new pic as the display every 3 seconds
     const len = pics.length;
     setInterval(function() {
@@ -189,12 +189,25 @@ $(function() {
     });
     //------------END PICS CAROUSEL----------------
 
-//-----------------END MAIN PAGE SETUP----------------
+    //------------DROPDOWN MENU SETUP--------------
+
+
+    $(document.body).on('click', ".mobile", function() {
+        if ($('.dropdown-content').css("display") === "none") {
+            $('.dropdown-content').show();
+        } else {
+            $('.dropdown-content').hide();
+        }
+    });
+
+    //----------END DROPDOWN MENU SETUP--------------
+
+    //-----------------END MAIN PAGE SETUP----------------
 
 
 
 
-//-----------------MAIN ORDERS PAGE SETUP--------------------
+    //-----------------MAIN ORDERS PAGE SETUP--------------------
     $('.totalValue').text(cartTotal);
 
     //random string generator for idempotency key
@@ -220,7 +233,7 @@ $(function() {
     //adds an item to teh shopping cart
     $(".add").on('click', () => {
         //checks to make sure quantity is a positive integer
-        if ($('.quantity').val() > 0 && $('.quantity').val()%1 === 0) {
+        if ($('.quantity').val() > 0 && $('.quantity').val() % 1 === 0) {
             let newItem = $('<div class="cartItem">');
             newItem.html($('.pie-input option:selected').attr('name') + "&nbsp; &nbsp; x " + $('.quantity').val() + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $" + parseInt($('.quantity').val()) * 30 + ".00");
             $('.cart').prepend(newItem);
@@ -271,20 +284,20 @@ $(function() {
         });
     })
 
-//-----------------END MAIN ORDERS PAGE SETUP----------------
+    //-----------------END MAIN ORDERS PAGE SETUP----------------
 
 
 
-//-----------------REVIEW PAGE SETUP-------------------------
+    //-----------------REVIEW PAGE SETUP-------------------------
 
     //toggles shipping display
     $('input[name="method"]').on('change', () => {
         if ($('input[name="method"]:checked').val() === "Delivery") {
             $('.shipping').css('display', 'block');
-            $('.totalValueReview').text(parseInt($('.totalValueReview').text())+parseInt($('#shipping').text()));
+            $('.totalValueReview').text(parseInt($('.totalValueReview').text()) + parseInt($('#shipping').text()));
         } else {
             $('.shipping').css('display', 'none');
-            $('.totalValueReview').text(parseInt($('.totalValueReview').text())-parseInt($('#shipping').text()));
+            $('.totalValueReview').text(parseInt($('.totalValueReview').text()) - parseInt($('#shipping').text()));
         }
     })
 
@@ -324,12 +337,12 @@ $(function() {
         });
     })
 
-//-------------END REVIEW PAGE SETUP----------------
+    //-------------END REVIEW PAGE SETUP----------------
 
 
 
 
-//-----------------EVENTS PAGE SETUP--------------------
+    //-----------------EVENTS PAGE SETUP--------------------
     //creates a new event object based on user input
     $('.event-form').on('submit', (e) => {
         e.preventDefault();
@@ -390,6 +403,6 @@ $(function() {
         });
     });
 
-//-----------------END EVENTS PAGE SETUP----------------
+    //-----------------END EVENTS PAGE SETUP----------------
 
 })
