@@ -463,6 +463,20 @@
         display: none;
     }
 
+    .rowContainter {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .rowContainer>div {
+        margin: 20px;
+        width: 100%;
+    }
+
+    .groceries>div {
+        border: 1px solid black;
+        margin: 0;
+    }
     /*-----------------end forms-----------------------*/
     /*--------------------display optimization--------------*/
 

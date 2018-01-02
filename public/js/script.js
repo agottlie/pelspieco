@@ -453,7 +453,7 @@ $(function() {
             } else if ($('.weight-input').val() === 'ounces') {
                 price *= 16;
             }
-            measurement = "weight"
+            measurement = "pound"
         } else if ($('.measurement-input').val() === 'volume') {
             if ($('.volume-input').val() === 'tablespoons') {
                 price *= 16.2307;
@@ -466,7 +466,7 @@ $(function() {
             } else if ($('.volume-input').val() === 'milliliters') {
                 price *= 240;
             }
-            measurement = "volume"
+            measurement = "cup"
         } 
 
         let newEvent = {

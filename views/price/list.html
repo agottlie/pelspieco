@@ -13,10 +13,26 @@
 </head>
 
 <body>
-    <div class="results">
-        {{#data}}
-        
+    <div class="rowContainer">
+        <div>Item</div>
+        <div>Jetro</div>
+        <div>Dairy Land</div>
+        <div>Baldor</div>
+        <div>Dollar Tree</div>
+        <div>Other</div>
+        <div>Measurement</div>
     </div>
+    {{#data}}
+    <div class="rowContainer groceries">
+        <div>{{name}}</div>
+        <div>${{jetro_price}}</div>
+        <div>${{dairyland_price}}</div>
+        <div>${{baldor_price}}</div>
+        <div>${{dollartree_price}}</div>
+        <div>${{other_price}}</div>
+        <div>{{measurement}}</div>
+    </div>
+    {{/data}}
     <a href="/price/">Back</a>
 </body>
 
