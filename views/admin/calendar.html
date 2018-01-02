@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pels Pie Co.</title>
+    <link rel="shortcut icon" href="../../images/pels-pie-co-favicon.jpg" />
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../js/calendar.js"></script>
+    <link rel='stylesheet' href='../../fullcalendar-3.8.0/fullcalendar.css' />
+    <script src='../../fullcalendar-3.8.0/lib/moment.min.js'></script>
+    <script src='../../fullcalendar-3.8.0/fullcalendar.js'></script>
+</head>
+
+<body>
+    <a href="/admin">Back</a>
+    <a href="/admin/newcalendar">New Event</a> 
+    {{#data}}
+    <div class="calendarItem" title="{{title}}" description="{{description}}" start="{{start}}"></div>
+    {{/data}}
+    <div id="calendar"></div>
+    }
+</body>

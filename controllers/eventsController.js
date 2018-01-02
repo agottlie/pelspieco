@@ -24,14 +24,6 @@ router.get('/thanks', (req, res) => {
     res.render('events/thanks');
 })
 
-router.get('/login', (req, res) => {
-    res.render('events/login');
-})
-
-router.get('/show', (req, res) => {
-    res.render('events/show', eventsData);
-})
-
 //event inquiry submit route
 router.post('/', (req, res) => {
     const email = req.body.email,

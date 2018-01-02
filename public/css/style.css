@@ -456,8 +456,13 @@
 
     .event-form>input,
     .event-form>select {
-        height: 3vh;
+        height: 4vh;
     }
+
+    .volume-input {
+        display: none;
+    }
+
     /*-----------------end forms-----------------------*/
     /*--------------------display optimization--------------*/
 
@@ -554,6 +559,7 @@
         .order-form>div>select,
         .review>div>input {
             margin-top: 10px;
+            width: 500px;
         }
         .filler {
             height: 30vh;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pels Pie Co.</title>
+    <link rel="shortcut icon" href="../../images/pels-pie-co-favicon.jpg" />
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../js/script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+    <script src="https://unpkg.com/flatpickr"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class="title">Sign Up</h1>
+        </div>
+        <form action="/admin/" method="POST">
+            <label for="name">Name</label>
+            <br>
+            <input class="input" id="name" type="text" name="user[name]" placeholder="User Name">
+            <br>
+            <label for="password">Password</label>
+            <br>
+            <input id="password" class="input" type="password" name="user[password]" placeholder="P4ssw0rd1234">
+            <br>
+            <input type="submit" class="button" value="Sign Up">
+        </form>
+    </div>
+</body>
+
+</html>

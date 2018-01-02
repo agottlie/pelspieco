@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pels Pie Co.</title>
+    <link rel="shortcut icon" href="../../images/pels-pie-co-favicon.jpg" />
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../js/script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+    <script src="https://unpkg.com/flatpickr"></script>
+</head>
+
+<body>
+    <form class="price-form">
+        <select class="name-input input" placeholder="Name" required>
+            <option value="new">New Item</option>
+            {{#data}}
+            <option value="{{id}}">{{name}}</option>
+            {{/data}}
+        </select>
+        <input class="new-item-input input" placeholder="Name" />
+        <select class="measurement-input input" placeholder="Type of Measurement" required>
+            <option value="weight">Weight</option>
+            <option value="volume">Volume</option>
+            <option value="unit">Unit</option>
+        </select>
+        <input class="quantity-input input" placeholder="Quantity" required />
+        <select class="weight-input input" placeholder="Unit of Measurement" required/>
+            <option value="grams">Grams</option>
+            <option value="pounds">Pounds</option>
+            <option value="ounces">Ounces</option>
+        </select>
+        <select class="volume-input input" placeholder="Unit of Measurement" required/>
+            <option value="tablespoons">Tablespoons</option>
+            <option value="fluid_ounces">Fluid Ounces</option>
+            <option value="cups">Cups</option>
+            <option value="quarts">Quarts</option>
+            <option value="liters">Liters</option>
+            <option value="milliliters">Milliliters</option>
+        </select>
+        <select class="vendor-input input" placeholder="Vendor" required>
+            <option value="jetro">Jetro</option>
+            <option value="dairyland">Dairyland</option>
+            <option value="baldor">Baldor</option>
+            <option value="dollartree">Dollar Tree</option>
+            <option value="other">Other</option>
+        </select>
+        <input class="price-input input" placeholder="Price" required/>
+        <input type="submit" class="submit" value="Add Item">
+    </form>
+    <a href="/price/">Back</a>
+</body>
+
+</html>

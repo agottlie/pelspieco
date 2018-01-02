@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const mustacheExpress = require('mustache-express');
 const Order = require('./services/square');
 const util = require('util');
@@ -16,6 +17,20 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+}));
+
+// ====================================================================
+// PASSPORT STUFF
+const auth = require('./services/auth.js');
+app.use(auth.passportInstance);
+app.use(auth.passportSession);
+
+// END PASSPORT STUFF
+
 app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +40,8 @@ app.use(cookieParser());
 //controller routes
 app.use('/order', require('./controllers/orderController'));
 app.use('/events', require('./controllers/eventsController'));
+app.use('/price', require('./controllers/priceController'));
+app.use('/admin', require('./controllers/adminController'));
 
 //renders the landing page
 app.get('/', (req, res) => {
