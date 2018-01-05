@@ -15,6 +15,7 @@ router.get('/list', auth.restrict, (req,res) => {
 		.getPrices()
 		.then(data => {
 			priceData.data = data;
+            console.log(data);
 			res.render('price/list', priceData);
 		})
 })

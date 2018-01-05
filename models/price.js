@@ -6,7 +6,7 @@ function create(name, measurement, v, price) {
 }
 
 function getPrices() {
-	return db.manyOrNone(`SELECT * FROM grocery`);
+	return db.manyOrNone(`SELECT * FROM grocery ORDER BY name ASC`);
 }
 
 function update(id, measurement, v, price) {

@@ -379,6 +379,7 @@
     .rowContainer>div {
         margin: 20px;
         width: 100%;
+        padding: 5px;
     }
 
     .pieSelection {
@@ -463,20 +464,27 @@
         display: none;
     }
 
-    .rowContainter {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .rowContainer>div {
-        margin: 20px;
-        width: 100%;
-    }
-
     .groceries>div {
         border: 1px solid black;
         margin: 0;
     }
+
+    .green {
+        background-color: lightgreen;
+    }
+
+    .list-quantity-input {
+        padding: 0;
+        border: 0;
+        width: 100%;
+    }
+
+    .remove-grocery {
+        cursor: pointer;
+        color: blue;
+    }
+
+
     /*-----------------end forms-----------------------*/
     /*--------------------display optimization--------------*/
 
