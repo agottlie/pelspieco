@@ -7,70 +7,92 @@
     <link rel="shortcut icon" href="../../images/pels-pie-co-favicon.jpg" />
     <link rel="stylesheet" type="text/css" href="../../css/style.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../../js/price.js"></script>
+    <script type="text/javascript" src="../../js/shopping_list.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     <script src="https://unpkg.com/flatpickr"></script>
 </head>
 
-<body>
-    <a href="/price/">Back</a>
-    <div class="rowContainer">
-        <form class="list-form">
-            <select class="list-input input" placeholder="Choose Item" required>
-                {{#data}}
-                <option jetro="{{jetro_price}}" dairyland="{{dairyland_price}}" baldor="{{baldor_price}}" dollartree="{{dollartree_price}}" other="{{other_price}}" measurement="{{measurement}}">{{name}}</option>
-                {{/data}}
-            </select>
-            <input type="submit" class="submit" value="Add Item">
-        </form>
-    </div>
-    <div class="shopping_list">
-        <h1>Shopping Cart</h1>
-        <div class="rowContainer groceries">
-            <div>Item</div>
-            <div>Jetro</div>
-            <div>Dairy Land</div>
-            <div>Baldor</div>
-            <div>Dollar Tree</div>
-            <div>Other</div>
-            <div>Quantity</div>
-            <div>Measurement</div>
-            <div>Remove</div>
+<body class="adminBody">
+    <div class="calendarContainer">
+        <a href="/price/" class="back" style="float:right">Back</a>
+        <div class="rowContainer">
+            <form class="list-form">
+                <select class="list-input input" placeholder="Choose Item" required>
+                    {{#data}}
+                    <option jetro="{{jetro_price}}" dairyland="{{dairyland_price}}" baldor="{{baldor_price}}" dollartree="{{dollartree_price}}" other="{{other_price}}" measurement="{{measurement}}">{{name}}</option>
+                    {{/data}}
+                </select>
+                <input type="submit" class="submit" value="Add Item">
+            </form>
         </div>
-    </div>
-    <div class="jetro_result">
-        <h1>Jetro</h1>
-        <div class="rowContainer groceries">
-            <div>Item</div>
-            <div>Price</div>
+        <div class="shopping_list">
+            <h1>Shopping Cart</h1>
+            <div class="rowContainer groceries">
+                <div>Item</div>
+                <div>Jetro</div>
+                <div>Dairy Land</div>
+                <div>Baldor</div>
+                <div>Dollar Tree</div>
+                <div>Other</div>
+                <div>Quantity</div>
+                <div>Measurement</div>
+                <div>Remove</div>
+            </div>
         </div>
-    </div>
-    <div class="dairy_result">
-        <h1>Dairy Land</h1>
-        <div class="rowContainer groceries">
-            <div>Item</div>
-            <div>Price</div>
+        <div class="jetro_result">
+            <h1>Jetro</h1>
+            <div class="rowContainer groceries">
+                <div>Item</div>
+                <div>Price</div>
+            </div>
+            <div class="rowContainer groceries jetro_total">
+                <div>Total</div>
+                <div class="jetro_total_amount">0</div>
+            </div>
         </div>
-    </div>
-    <div class="baldor_result">
-        <h1>Baldor</h1>
-        <div class="rowContainer groceries">
-            <div>Item</div>
-            <div>Price</div>
+        <div class="dairy_result">
+            <h1>Dairy Land</h1>
+            <div class="rowContainer groceries">
+                <div>Item</div>
+                <div>Price</div>
+            </div>
+            <div class="rowContainer groceries dairy_total">
+                <div>Total</div>
+                <div class="dairy_total_amount">0</div>
+            </div>
         </div>
-    </div>
-    <div class="dollar_result">
-        <h1>Dollar Tree</h1>
-        <div class="rowContainer groceries">
-            <div>Item</div>
-            <div>Price</div>
+        <div class="baldor_result">
+            <h1>Baldor</h1>
+            <div class="rowContainer groceries">
+                <div>Item</div>
+                <div>Price</div>
+            </div>
+            <div class="rowContainer groceries baldor_total">
+                <div>Total</div>
+                <div class="baldor_total_amount">0</div>
+            </div>
         </div>
-    </div>
-    <div class="other_result">
-        <h1>Other</h1>
-        <div class="rowContainer groceries">
-            <div>Item</div>
-            <div>Price</div>
+        <div class="dollar_result">
+            <h1>Dollar Tree</h1>
+            <div class="rowContainer groceries">
+                <div>Item</div>
+                <div>Price</div>
+            </div>
+            <div class="rowContainer groceries dollar_total">
+                <div>Total</div>
+                <div class="dollar_total_amount">0</div>
+            </div>
+        </div>
+        <div class="other_result">
+            <h1>Other</h1>
+            <div class="rowContainer groceries">
+                <div>Item</div>
+                <div>Price</div>
+            </div>
+            <div class="rowContainer groceries other_total">
+                <div>Total</div>
+                <div class="other_total_amount">0</div>
+            </div>
         </div>
     </div>
 </body>

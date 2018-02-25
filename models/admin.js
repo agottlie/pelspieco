@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const db = require('../models/setup');
+const giphy = require('giphy-api')();
 
 
 function create(user) {
@@ -29,4 +30,8 @@ function getCalendar() {
 	return db.manyOrNone(`SELECT * FROM calendar`);
 }
 
-module.exports = { create, findByName, update, createCalendarEvent, getEvents, getCalendar };
+function getGif() {
+    return giphy.random({ tag: 'dog' });
+}
+
+module.exports = { create, findByName, update, createCalendarEvent, getEvents, getCalendar, getGif };

@@ -24,7 +24,17 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/', auth.restrict, (req, res) => {
-    res.render('admin/index');
+    // res.render('admin/index');
+
+    const gifInfo = {};
+
+    Admin
+        .getGif()
+        .then((gif) => {
+            gifInfo.gif = gif.data.image_url;
+            res.render('admin/index', { gifInfo });
+        })
+        .catch(err => console.log('ERROR:', err));
 });
 
 router.get('/events', auth.restrict, (req, res) => {

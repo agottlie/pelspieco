@@ -395,11 +395,6 @@
         background-repeat: repeat;
     }
 
-    .eventListing {
-        border: 1px solid black;
-        margin: -1px 0;
-    }
-
     .thanks {
         width: 80vw;
         background-color: white;
@@ -418,6 +413,94 @@
         text-align: center;
     }
     /*-----------------end events page-----------------------*/
+    /*-----------------admin page-----------------------*/
+
+    .adminBody {
+        background-image: url("../images/pels_back3.jpg");
+        background-size: 100%;
+        background-repeat: repeat;
+        height: 100%;
+    }
+
+    .authpage {
+        background-color: lightgray;
+        width: 40%;
+        margin: 5% auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .admin-index>div>a {
+        height: 290px;
+        width: 290px;
+        margin: 10px;
+        border: 1px solid black;
+        box-shadow: 2px;
+        text-decoration: none;
+    }
+
+    .admin-index>div>a>div {
+        height: 100%;
+        width: 100%;
+        font-size: 30px;
+        text-align: right;
+        color: black;
+        padding-right: 10px;
+    }
+
+    .priceContainer {
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .calendar {
+        background-image: url("../images/calendar.jpg");
+    }
+
+    .events {
+        background-image: url("../images/events.png");
+    }
+
+    .price_tool {
+        background-image: url("../images/shopping_cart.png");
+    }
+
+    .dog {
+        background-image: url("../images/polly.jpg");
+    }
+
+    .calendarContainer {
+        background-color: lightgray;
+    }
+
+    .calendarHeader {
+        text-align: center;
+        font-family: Courier New, Courier, monospace;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .eventContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .eventContainer>div {
+        margin: 5px;
+        width: 10%;
+    }
+
+    .eventItem {
+        border: 1px solid black;
+    }
     /*---------------forms--------------------------*/
 
     .event-form,
@@ -484,7 +567,38 @@
         color: blue;
     }
 
+    .admin-form,
+    .calendar-form,
+    .price-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .admin-form>input,
+    .calendar-form>input,
+    .price-form>input,
+    .price-form>select {
+        margin-bottom: 20px;
+        width: 400px;
+        font-family: Courier New, Courier, monospace;
+        height: 35px;
+        font-size: 20px;
+        border: 2px solid black;
+        padding: 5px;
+    }
+
+    .admin-form>label,
+    .signup {
+        font-family: Courier New, Courier, monospace;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .calendar-form,
+    .price-form {
+        margin-top: 50px;
+    }
     /*-----------------end forms-----------------------*/
     /*--------------------display optimization--------------*/
 

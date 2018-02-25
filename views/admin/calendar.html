@@ -14,11 +14,15 @@
 </head>
 
 <body>
-    <a href="/admin">Back</a>
-    <a href="/admin/newcalendar">New Event</a> 
+    <a class ="back" href="/admin" style="float:right; margin-top:0">Back</a>
+    <div class="calendarHeader">   
+        <a href="/admin/newcalendar">New Event</a> 
+    </div>
     {{#data}}
     <div class="calendarItem" title="{{title}}" description="{{description}}" start="{{start}}"></div>
     {{/data}}
-    <div id="calendar"></div>
-    }
+    <div class="calendarContainer">
+        <div id="calendar"></div>
+    </div>
+    
 </body>

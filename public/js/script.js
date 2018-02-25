@@ -122,6 +122,26 @@ $(function() {
             "description": "Tangy rhubarb baked in a buttery lattice-topped crust.",
             "photo": ""
         },
+        "Clementine Cranberry": {
+            "description": "Soft citrus cranberry custard with flaked almonds on top",
+            "photo": ""
+        },
+        "Gooseberry": {
+            "description": "Sharp and tangy gooseberry custard",
+            "photo": ""
+        },
+        "Potato Truffle Frittata": {
+            "description": "Sliced potato and truffle salt in a savory egg custard with nutmeg and herbs de province.",
+            "photo": ""
+        },
+        "Mushroom Ricotta Frittata": {
+            "description": "Butter-cooked mushrooms and creamy ricotta in a savory egg custard with nutmeg and herbs de province (keto friendly).",
+            "photo": ""
+        },
+        "Sausage Pepper Ricotta Frittata": {
+            "description": "Pork sausage and bell peppers in a savory egg custard with nutmeg and herbs de province (keto friendly).",
+            "photo": ""
+        }
     };
 
 

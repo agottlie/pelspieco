@@ -7,12 +7,13 @@
     <link rel="shortcut icon" href="../../images/pels-pie-co-favicon.jpg" />
     <link rel="stylesheet" type="text/css" href="../../css/style.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../../js/price.js"></script>
+    <script type="text/javascript" src="../../js/add_item.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
     <script src="https://unpkg.com/flatpickr"></script>
 </head>
 
-<body>
+<body class="adminBody">
+    <a href="/price/" class="back" style="float:right; margin-top:-40px; color:white">Back</a>
     <form class="price-form">
         <select class="name-input input" placeholder="Name" required>
             <option value="new">New Item</option>
@@ -50,7 +51,6 @@
         <input class="price-input input" placeholder="Price" required/>
         <input type="submit" class="submit" value="Add Item">
     </form>
-    <a href="/price/">Back</a>
 </body>
 
 </html>

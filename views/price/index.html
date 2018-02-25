@@ -12,10 +12,18 @@
     <script src="https://unpkg.com/flatpickr"></script>
 </head>
 
-<body>
-    <a href="/price/list">Create Shopping List</a>
-    <a href="/price/add">Add Item</a>
-    <a href="/admin">Back</a>
+<body class="adminBody">
+    <a href="/admin" class="back" style="float:right; margin-top:-40px; color:white">Back</a>
+    <div class="admin-index">
+        <div class="rowContainer priceContainer">
+            <a href="/price/list">
+                <div class="price_tool" style="font-size:20px; padding-top:10px">Create Shopping List</div>
+            </a>
+            <a href="/price/add">
+                <div class="price_tool price-text" style="font-size:20px; padding-top:10px">Add Item</div>
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>

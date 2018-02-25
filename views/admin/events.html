@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <a href="/admin">Back</a>
+    <a href="/admin" class="back" style="margin-top:0; float:right">Back</a>
     <!-- events header -->
-    <div class="rowContainer">
-        <div>Email</div>
+    <div class="eventContainer" style="clear:both">
+        <div style="width:20%">Email</div>
         <div>First Name</div>
         <div>Last Name</div>
         <div>Phone Number</div>
@@ -28,8 +28,8 @@
 
     <!-- table of all events -->
     {{#data}}
-    <div class="rowContainer eventListing">
-        <div>{{email}}</div>
+    <div class="eventContainer eventItem">
+        <div style="width:20%">{{email}}</div>
         <div>{{first_name}}</div>
         <div>{{last_name}}</div>
         <div>{{phone}}</div>

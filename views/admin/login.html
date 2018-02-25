@@ -12,24 +12,18 @@
     <script src="https://unpkg.com/flatpickr"></script>
 </head>
 
-<body>
-    <div class="container">
-        <div>
-            <h1 class="title">Login</h1>
-        </div>
-        <form action="/admin/login" method="POST">
+<body class="adminBody">
+    <div class="authpage">
+        <h1>Login</h1>
+        <form action="/admin/login" class="admin-form" method="POST">
             <label for="name">Name</label>
-            <br>
             <input id="name" class="input" type="text" name="user[name]" placeholder="User Name">
-            <br>
             <label for="password">Password</label>
-            <br>
             <input id="password" class="input" type="password" name="user[password]" placeholder="P4ssw0rd1234">
-            <br>
-            <input type="submit" class="button" value="Login">
+            <input type="submit" class="submit" value="Login" style="width:200px; height: 5vh">
         </form>
-        <div>
+<!--         <div class="signup">
             <a href="/admin/new">Sign Up</a>
-        </div>
+        </div> -->
     </div>
 </body>

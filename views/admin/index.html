@@ -12,8 +12,23 @@
     <script src="https://unpkg.com/flatpickr"></script>
 </head>
 
-<body>
-    <a href="admin/calendar">Calendar</a>
-    <a href="admin/events">Events</a>
-    <a href="price">Price Tool</a>
+<body class="adminBody">
+    <div class="admin-index">
+        <div class="rowContainer">
+            <a href="admin/calendar">
+                <div class="calendar">Calendar</div>
+            </a>
+            <a href="admin/events">
+                <div class="events">Events</div>
+            </a>
+        </div>
+        <div class="rowContainer">
+            <a href="price">
+                <div class="price_tool">Price Tool</div>
+            </a>
+            <a href="{{gifInfo.gif}}">
+                <div class="dog">Random Dog Gif</div>
+            </a>
+        </div>
+    </div>
 </body>
