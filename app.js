@@ -6,6 +6,12 @@ const session = require('express-session');
 const mustacheExpress = require('mustache-express');
 const Order = require('./services/square');
 const util = require('util');
+var dd_options = {
+  'response_code':true,
+  'tags': ['app:my_app']
+}
+
+var connect_datadog = require('connect-datadog')(dd_options);
 
 require('dotenv').config()
 
@@ -30,6 +36,8 @@ app.use(auth.passportInstance);
 app.use(auth.passportSession);
 
 // END PASSPORT STUFF
+
+app.use(connect_datadog);
 
 app.use(logger('dev'));
 
