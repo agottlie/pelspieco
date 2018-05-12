@@ -14,6 +14,10 @@ router.post('/', passport.authenticate(
     }
 ));
 
+router.get('/test', (req,res) => {
+    res.render('admin/test');
+})
+
 router.get('/new', (req, res) => {
     res.render('admin/new');
 });
@@ -70,6 +74,7 @@ router.get('/newcalendar', auth.restrict, (req, res) => {
 router.get('/login', (req, res) => {
     res.render('admin/login');
 });
+
 
 router.post('/login', passport.authenticate(
     'local-login', {
