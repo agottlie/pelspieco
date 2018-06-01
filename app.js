@@ -6,12 +6,7 @@ const session = require('express-session');
 const mustacheExpress = require('mustache-express');
 const Order = require('./services/square');
 const util = require('util');
-var dd_options = {
-  'response_code':true,
-  'tags': ['app:my_app']
-}
-
-var connect_datadog = require('connect-datadog')(dd_options);
+const Trello = require('./services/trello');
 
 require('dotenv').config()
 
@@ -37,8 +32,6 @@ app.use(auth.passportSession);
 
 // END PASSPORT STUFF
 
-app.use(connect_datadog);
-
 app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -60,23 +53,37 @@ app.get('/', (req, res) => {
 app.get('/confirm', (req, res) => {
     let id = req.query.transactionId;
     let delivery = req.query.referenceId;
+    let orderData;
 
     //gets transacation info based on what's passed back from successful Square transaction
     Order
         .findTransaction(id)
         .then(data => {
+            console.log("HI");
+            console.log("in Controller");
+            console.log(data.data.transaction.order_id);
+            return Order.findOrder(data.data.transaction.order_id);
+        })
+        .then(data => {
+            console.log("HEY");
+            console.log(util.inspect(data));
+            orderData=data.data.orders[0];
+            orderData.delivery="";
             if (delivery === 'delivery') {
-                data.data.transaction.order.delivery = "Your order will be delivered in 3-5 business days"
+                orderData.delivery = "Your order will be delivered in 3-5 business days"
             } else {
-            	data.data.transaction.order.delivery = "Your order will be available to be picked up by noon of the following business day.  We will email you when it is ready."
+                orderData.delivery = "Your order will be available to be picked up by noon of the following business day.  We will email you when it is ready."
             }
-            data.data.transaction.order.total_money.amount /= 100;
-            console.log(data.data.transaction.order.total_money.amount);
-            data.data.transaction.order.line_items.map (item => {
-            	item.total_money.amount /=100;
+            orderData.total_money.amount /= 100;
+            orderData.line_items.map(item => {
+                item.total_money.amount /= 100;
             })
-            console.log(util.inspect(data.data.transaction.order));
-            res.render('confirm', data.data.transaction.order);
+            console.log(util.inspect(orderData));
+            return Trello.addPie(orderData);
+        })
+        .then(data => {
+            console.log("SUP");
+            res.render('confirm', orderData);
         })
 });
 

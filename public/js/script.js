@@ -250,7 +250,7 @@ $(function() {
         $('.pieImage').attr("src", pieInfo[$('.pie-input option:selected').attr('name')].photo)
     })
 
-    //adds an item to teh shopping cart
+    //adds an item to the shopping cart
     $(".add").on('click', () => {
         //checks to make sure quantity is a positive integer
         if ($('.quantity').val() > 0 && $('.quantity').val() % 1 === 0) {

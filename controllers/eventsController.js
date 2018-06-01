@@ -1,20 +1,8 @@
 const router = require('express').Router();
 const Events = require('../models/events');
-const Trello = require('../services/trello')
-// const nodemailer = require('nodemailer');
+const Trello = require('../services/trello');
 
 const eventsData = {};
-
-//credentials for mailer
-// let transporter = nodemailer.createTransport({
-//     host: 'smtp.gmail.com',
-//     port: 465,
-//     secure: true,
-//     auth: {
-//         user: 'buttercup.alison',
-//         pass: process.env.GOOGLE_PASS
-//     }
-// });
 
 //events 'GET" routes
 router.get('/', (req, res) => {
@@ -37,34 +25,6 @@ router.post('/', (req, res) => {
         event_time = req.body.event_time;
     let checklistId;
 
-    // let mailOptions = {
-    //     from: '"Alison" <buttercup.alison@gmail.com>', // sender address
-    //     to: 'buttercup.alison@gmail.com', // list of receivers
-    //     subject: `Event Details for ${first_name} ${last_name}`, // Subject line
-    //     html:  `<h3>Email: ${email}</h3> 
-    //             <h3>First Name: ${first_name}</h3>
-    //             <h3>Last Name: ${last_name}</h3>
-    //             <h3>Phone Number: ${phone}</h3>
-    //             <h3>Number of People: ${num_people}</h3>
-    //             <h3>Type of Event: ${type_of_event}</h3>
-    //             <h3>Event Date: ${event_date}</h3>
-    //             <h3>Event Time: ${event_time}</h3>` // html body
-    // };
-
-    // //create an event object in the db and send notification email
-    // Events
-    //     .create(email, first_name, last_name, phone, num_people, type_of_event, event_time, event_date)
-    //     .then(data => {
-    //         transporter.sendMail(mailOptions, (error, info) => {
-    //             if (error) {
-    //                 return console.log(error);
-    //             }
-    //             console.log('Message %s sent: %s', info.messageId, info.response);
-    //         });
-    //         res.json(data);
-    //     })
-    //     .catch(err => console.log('ERROR: ', err));
-
     Events
         .create(email, first_name, last_name, phone, num_people, type_of_event, event_time, event_date)
         .then(data => {
@@ -74,9 +34,9 @@ router.post('/', (req, res) => {
             return Trello.createList(data.data.id);
         })
         .then(data => {
-            checklistId=data.data.id;
-            let fullName = first_name + " "+ last_name;
-            return Trello.createListItem(checklistId,"Name:", fullName);
+            checklistId = data.data.id;
+            let fullName = first_name + " " + last_name;
+            return Trello.createListItem(checklistId, "Name:", fullName);
         })
         .then(data => {
             return Trello.createListItem(checklistId, "Email:", email);
